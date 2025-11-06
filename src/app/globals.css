@@ -1,26 +1,39 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+	--color-white-one: rgba(255, 255, 255, 0.1);
+	--color-white: #ffffff;
+	--color-whiteBg: #fafafa;
+	--color-grayscale: #eceff3;
+	--color-dark: #000000;
+	--color-primary: #2e2e2e;
+	--color-primary2: #525252;
+
+	--breakpoint-xs: 360px;
+
+	--animate-visible: visible 0.3s ease-out;
+	@keyframes visible {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+}
+.wrapper {
+	@apply mx-auto w-full max-w-[1200px];
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.gradient-text {
+	color: transparent;
+	background: radial-gradient(30.84% 414.74% at 50% 50%, #a777ff 0%, rgba(167, 119, 255, 0) 100%),
+		radial-gradient(36.65% 492.95% at 66.87% 50%, #92c5ff 80%, rgba(146, 197, 255, 0) 100%),
+		linear-gradient(to right, #2e2e2e 0%, #2e2e2e 20%, rgba(46, 46, 46, 0) 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.my-outline {
+	@apply outline-none ring-purple-400 focus:outline-none focus-visible:rounded-lg focus-visible:ring-2;
 }
