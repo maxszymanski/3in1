@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import PageTitle from '../ui/PageTitle'
+import Button from '../ui/Button'
 
 function EditorForm() {
 	const [fileName, setFileName] = useState<string | null>(null)
@@ -62,7 +63,7 @@ function EditorForm() {
 
 	return (
 		<section className="w-full">
-			<PageTitle title="Edytor Tekstu" />
+			<PageTitle title="Program do manipulacji tekstem" />
 
 			<div className="pt-8 flex items-center justify-evenly flex-wrap w-full gap-6">
 				<div>
@@ -74,12 +75,9 @@ function EditorForm() {
 						{text ? 'Zmień plik' : 'Wybierz plik '}
 					</label>
 				</div>
-				<button
-					onClick={processText}
-					disabled={!text}
-					className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 disabled:opacity-50 transition-colors duration-300 my-outline cursor-pointer text-sm sm:text-base disabled:cursor-not-allowed">
-					Zamieszaj tekst
-				</button>
+				<Button variant='purple' onClick={processText}
+					disabled={!text}>Zamieszaj tekst</Button>
+				
 			</div>
 			{error && <p className="mt-6 text-red-600 font-medium text-center">{error}</p>}
 			{fileName && <p className="mt-6 text-primary text-sm sm:text-base text-center">Wybrany plik: {fileName}</p>}
@@ -97,11 +95,9 @@ function EditorForm() {
 						</pre>
 					</div>
 					<div className="flex justify-center pt-8">
-						<button
-							onClick={resetForm}
-							className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 disabled:opacity-50 transition-colors duration-300 my-outline cursor-pointer text-sm sm:text-base">
-							Resetuj
-						</button>
+						<Button variant='danger' onClick={resetForm}
+					disabled={!text}>Resetuj</Button>
+						
 					</div>
 				</>
 			)}

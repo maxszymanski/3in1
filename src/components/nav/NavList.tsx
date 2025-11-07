@@ -11,7 +11,7 @@ function NavList() {
 	const pathname = usePathname()
 
 	return (
-		<ul className={`flex flex-col gap-5 md:flex-row md:gap-1 lg:gap-5 xl:gap-10`}>
+		<ul className={`flex flex-col gap-5 md:flex-row md:gap-1 lg:gap-10 `}>
 			{list.map(l => (
 				<NavLink key={l.href} {...l} isActive={pathname === l.href} />
 			))}

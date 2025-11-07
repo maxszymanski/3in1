@@ -37,3 +37,21 @@
 .my-outline {
 	@apply outline-none ring-purple-400 focus:outline-none focus-visible:rounded-lg focus-visible:ring-2;
 }
+
+.animate-visible {
+  animation: visible 0.3s ease-in-out;
+}
+
+.body-modal-open {
+	overflow: hidden;
+}
+
+
+@keyframes visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

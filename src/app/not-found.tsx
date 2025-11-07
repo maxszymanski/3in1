@@ -1,9 +1,7 @@
 import { redirect } from 'next/navigation'
 
 function notFound() {
- redirect('/')
-
-	return null
+	redirect('/')
 }
 
 export default notFound
